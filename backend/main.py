@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from routers import health
 
 #create an instance of FastAPI and customize metadata configurations
 app = FastAPI(
@@ -11,3 +12,6 @@ app = FastAPI(
         version='0.0.1', #set the version of the API
         contact={'name': 'URL Shortener', 'url': 'https://github.com/antenehbedilu/urlshortener', 'email': 'hello@antenehbedilu.com'}, #set the contact information for the API
         license_info={'name': 'MIT License', 'url': 'https://raw.githubusercontent.com/antenehbedilu/urlshortener/main/LICENSE'}) #set the license information for the API
+
+#include the health router in the FastAPI application
+app.include_router(health.router)
